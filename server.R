@@ -26,6 +26,7 @@ movie_rating <- merge(movie1, id_rating_temp, by='movieId')
 tfv <- readRDS('tfv.Rds')
 # sim_df <- readRDS('sim_df.Rds')
 tf_mat <- readRDS('tf_mat.Rds')
+cos_sim <- readRDS('cos_sim.Rds')
 cos_sim_mat <- cos_sim(tf_mat, tf_mat)
 sim_df <- as.data.frame(cos_sim_mat)
 
@@ -37,15 +38,13 @@ titles <- readRDS('titles.Rds')
 
 
 ubcf_model <- readRDS('ubcf_model.Rds')
-cos_sim <- readRDS('cos_sim.Rds')
-
 simple_recommender <- readRDS('simple_recommender.Rds')
 content_recommender <- readRDS('content_recommender.Rds')
 UBCF_Recommender <- readRDS('UBCF_Recommender.Rds')
 hybrid_recommender <- readRDS('hybrid_recommender.Rds')
 
 
-shinyApp(function(input, output){
+shinyServer(function(input, output){
   
   
   simple_recommends <- reactive({
