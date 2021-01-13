@@ -1,6 +1,9 @@
 library(shiny)
 library(shinythemes)
 
+genres <- readRDS('genres.Rds')
+titles <- readRDS('titles.Rds')
+
 fluidPage(theme = shinytheme('flatly'),
           navbarPage(
             'Movie Recommender',
