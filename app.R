@@ -13,6 +13,7 @@ library(recommenderlab)
 library(shiny)
 library(shinythemes)
 library(DT)
+library(data.table)
 
 
 genres <- readRDS('genres.Rds')
