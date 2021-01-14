@@ -5,7 +5,7 @@
 
 my_packages = c("tidyverse", "dplyr", 'lubridate','tibble', 'stringr',
                 'stringi', 'tidytext', 'superml', 'reshape2', 'caret',
-                'recommenderlab', 'shiny', 'shinythemes', 'DT')
+                'recommenderlab', 'shiny', 'shinythemes', 'DT', 'data.table')
 
 
 install_if_missing = function(p) {
