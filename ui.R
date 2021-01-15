@@ -23,16 +23,19 @@ shinyUI(fluidPage(theme = shinytheme('flatly'),
                        
                      )
             ), # tab1 -- simple recommender
-            tabPanel('Content Recommender',
-                     sidebarPanel(
-                       selectInput('title2', 'movie', choices = titles),
-                       numericInput('rec_num2', 'number of recommendations', value = 10, min = 1, max = 20, step = 1),
-                       selectInput('description2', 'show descriptions', choices = c(T,F), selected = F),
-                       actionButton('submit2', 'submit', class='btn btn-primary')
-                     ),
-                     mainPanel(
-                       dataTableOutput('content_recommends')
-                     )), # tab2 -- content recommender
+                    
+            #tabPanel('Content Recommender',
+            #         sidebarPanel(
+            #           selectInput('title2', 'movie', choices = titles),
+            #           numericInput('rec_num2', 'number of recommendations', value = 10, min = 1, max = 20, step = 1),
+            #           selectInput('description2', 'show descriptions', choices = c(T,F), selected = F),
+            #           actionButton('submit2', 'submit', class='btn btn-primary')
+            #         ),
+            #         mainPanel(
+            #           dataTableOutput('content_recommends')
+            #         )), # tab2 -- content recommender
+            # skip tab2 content recommender, it's time consuming  
+                    
             tabPanel('CollaborativeFiltering(User-Based)',
                      sidebarPanel(
                        numericInput('userId3', 'userId', value = 1, min = 1, max = 671, step = 1),
