@@ -1,5 +1,3 @@
-setwd("~/Desktop/MyR/RShiny/MovieRecommender")
-
 #### Data Prepare ####
 
 ## Libraries
