@@ -2,8 +2,8 @@ library(shiny)
 library(shinythemes)
 
 
-genres <- readRDS('.\genres.Rds')
-titles <- readRDS('.\titles.Rds')
+genres <- readRDS('./genres.Rds')
+titles <- readRDS('./titles.Rds')
 
 
 shinyUI(fluidPage(theme = shinytheme('flatly'),
