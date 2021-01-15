@@ -27,9 +27,10 @@ tfv <- readRDS('./tfv.Rds')
 # sim_df <- readRDS('sim_df.Rds')
 tf_mat <- readRDS('./tf_mat.Rds')
 cos_sim <- readRDS('./cos_sim.Rds')
-cos_sim_mat <- cos_sim(tf_mat, tf_mat)
-sim_df <- as.data.frame(cos_sim_mat)
 
+# cos_sim_mat <- cos_sim(tf_mat, tf_mat)
+# sim_df <- as.data.frame(cos_sim_mat)
+# these 2 lines are to time consuming when computing, just skip these and skip the content based recommender for deployment
 
 cf_mat <- readRDS('./cf_mat.Rds')
 
@@ -53,9 +54,11 @@ shinyServer(function(input, output){
                                  by_vote_avg = input$by_vote_avg, by_popularity = input$by_popularity,
                                  year_after = input$year_after))
   })
-  content_recommends <- reactive({
-    datatable(content_recommender(title = input$title2, rec_num = input$rec_num2, description = input$description2))
-  })
+  
+  #content_recommends <- reactive({
+  #  datatable(content_recommender(title = input$title2, rec_num = input$rec_num2, description = input$description2))
+  #}) # skip this recommender
+  
   UBCF_recommends <- reactive({
     datatable(UBCF_Recommender(userId = input$userId3, rec_num = input$rec_num3, description = input$description3))
   })
@@ -67,9 +70,11 @@ shinyServer(function(input, output){
   output$simple_recommends <- renderDataTable({
     if (input$submit1>0) {isolate(simple_recommends())}
   })
-  output$content_recommends <- renderDataTable({
-    if (input$submit2>0) {isolate(content_recommends())}
-  })
+  
+  #output$content_recommends <- renderDataTable({
+  #  if (input$submit2>0) {isolate(content_recommends())}
+  #}) #skip
+  
   output$UBCF_recommends <- renderDataTable({
     if (input$submit3>0) {isolate(UBCF_recommends())}
   })
